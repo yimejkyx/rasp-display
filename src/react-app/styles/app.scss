@@ -1,0 +1,43 @@
+html, body, .react-root {
+  height: 100%;
+  overflow: auto;
+}
+  
+html {
+  overflow-x: hidden;
+}
+
+
+.fullscreen-center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fullscreen-center-container {
+  padding-bottom: 2.5rem;
+}
+
+a.empty-link {
+  color: black;
+  text-decoration: none;
+}
+
+// CUSTOM
+.main-app {
+  height: 100vh;
+}
+
+.btn.dashboard {
+  height: 100%;
+}
+
+html, body, .react-root {
+  background: black;
+  color: white;
+}
+
+.table {
+  color: white;
+}
