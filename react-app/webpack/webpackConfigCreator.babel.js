@@ -2,7 +2,6 @@
 import Path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Webpack from 'webpack';
-import ImageminWebpack from 'image-minimizer-webpack-plugin';
 
 export default (env, options) => {
   const NODE_ENV = JSON.stringify(env.NODE_ENV === 'development' ? 'development' : 'production');
@@ -20,25 +19,7 @@ export default (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({ template: Path.resolve(__dirname, '../src/index.html') }),
-      new Webpack.DefinePlugin({ 'process.env': { NODE_ENV } }),
-      new ImageminWebpack({
-        minimizerOptions: {
-          plugins: [
-            ['gifsicle', { interlaced: true }],
-            ['jpegtran', { progressive: true }],
-            [
-              'svgo',
-              {
-                plugins: [
-                  {
-                    removeViewBox: false
-                  }
-                ]
-              }
-            ]
-          ]
-        }
-      })
+      new Webpack.DefinePlugin({ 'process.env': { NODE_ENV } })
     ],
     optimization: {
       splitChunks: {
