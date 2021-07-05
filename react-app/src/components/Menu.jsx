@@ -28,7 +28,7 @@ const Menu = () => {
                     <Button className="dashboard" block onClick={() => history.push('/settings')}><h1>Settings</h1></Button>
                 </Col>
                 <Col xs={6} className="p-2">
-                    <Button disabled className="dashboard" block onClick={() => {
+                    <Button className="dashboard" block onClick={() => {
                         electron.ipcRenderer.send('exit-app');
                     }}><h1>Exit</h1></Button>
                 </Col>

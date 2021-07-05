@@ -2,7 +2,7 @@ const electron = require('electron');
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
-const {Tray, Menu, ipcRenderer, BrowserWindow } = electron;
+const {Tray, Menu, ipcMain, BrowserWindow } = electron;
 
 if (require('electron-squirrel-startup')) return app.quit();
 
@@ -64,10 +64,6 @@ function exitApp() {
     app.quit();
 }
 
-ipcRenderer.on('exit-app', () => {
-    exitApp();
-});
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -88,5 +84,9 @@ app.on('ready', () => {
     tray.setContextMenu(contextMenu);
     tray.on('click', () => {
         mainWindow.show();
+    });
+
+    ipcMain.on('exit-app', () => {
+        exitApp();
     });
 });
