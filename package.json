@@ -14,7 +14,9 @@
     "electron-dev:win": "set ELECTRON_START_URL=http://localhost:5000 && npx electron .",
     "forge:start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "make:deb:x64": "electron-forge make --platform=linux --arch=x64 --targets @electron-forge/maker-deb",
+    "make:deb:arm64": "electron-forge make --platform=linux --arch=arm64 --targets @electron-forge/maker-deb"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"

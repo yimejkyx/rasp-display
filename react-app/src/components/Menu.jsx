@@ -3,6 +3,7 @@ import {Button, Col, Row} from "reactstrap";
 import React, {useContext} from "react";
 import {SettingsContext} from "../contexts/SettingsContext";
 import Loading from "./Loading";
+import electron from "../utils/electron-react-wrapper";
 
 const Menu = () => {
     const history = useHistory();
@@ -27,7 +28,9 @@ const Menu = () => {
                     <Button className="dashboard" block onClick={() => history.push('/settings')}><h1>Settings</h1></Button>
                 </Col>
                 <Col xs={6} className="p-2">
-                    <Button disabled className="dashboard" block><h1>IDK2</h1></Button>
+                    <Button disabled className="dashboard" block onClick={() => {
+                        electron.ipcRenderer.send('exit-app');
+                    }}><h1>Exit</h1></Button>
                 </Col>
             </Row>
         </>
