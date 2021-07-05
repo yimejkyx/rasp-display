@@ -8,10 +8,10 @@ export default (env, options) => {
   const NODE_ENV = JSON.stringify(env.NODE_ENV === 'development' ? 'development' : 'production');
   return {
     entry: {
-      app: ['./src/react-app/index.jsx']
+      app: [Path.resolve(__dirname, '../src/index.jsx')]
     },
     output: {
-      path: Path.resolve('build'),
+      path: Path.resolve(__dirname, '../../build'),
       filename: `scripts/${options.jsFileName}`,
       publicPath: './'
     },
@@ -19,7 +19,7 @@ export default (env, options) => {
       extensions: ['.js', '.jsx']
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: './src/react-app/index.html' }),
+      new HtmlWebpackPlugin({ template: Path.resolve(__dirname, '../src/index.html') }),
       new Webpack.DefinePlugin({ 'process.env': { NODE_ENV } }),
       new ImageminWebpack({
         minimizerOptions: {

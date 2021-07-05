@@ -12,7 +12,7 @@ const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-const iconUrl = path.join(__dirname, '../../icon.ico');
+const iconUrl = path.join(__dirname, './icon.ico');
 
 let mainWindow = null;
 let tray = null
@@ -21,9 +21,11 @@ let tray = null
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800, height: 480, frame: true,
-        title: '',
+        width: 800, height: 480,
+        frame: true,
+        title: 'YimCryptoApp',
         icon: iconUrl,
+        fullscreen: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -36,7 +38,7 @@ function createWindow() {
 
     // and load the index.html of the app.
     const startUrl = process.env.ELECTRON_START_URL || url.format({
-        pathname: path.join(__dirname, '/../../build/index.html'),
+        pathname: path.join(__dirname, '/../build/index.html'),
         protocol: 'file:',
         slashes: true
     });

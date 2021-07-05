@@ -6,8 +6,8 @@ import webpackConfigCreator from './webpackConfigCreator.babel';
 const options = {
   isProduction: true,
   devtool: false,
-  jsFileName: '[name].[hash].js',
-  cssFileName: '[name].[hash].css'
+  jsFileName: '[name].[chunkhash].js',
+  cssFileName: '[name].[chunkhash].css'
 };
 
 export default env => {
